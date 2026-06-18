@@ -159,11 +159,13 @@
   [data-lang]{display:none}[data-lang].show{display:inline}
 
   /* missing header/footer classes for dongdaemun */
-  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 18px 0;gap:10px}
-  .backToRoot{font-size:13px;font-weight:600;color:var(--ink-soft);text-decoration:none;white-space:nowrap}
-  .langs{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
-  .langs button{font:inherit;font-size:12px;font-weight:600;background:var(--wash);color:var(--ink-soft);border:1px solid var(--line);padding:5px 11px;border-radius:7px;cursor:pointer;transition:.15s}
-  .langs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .top{padding:16px 18px 14px;border-bottom:1px solid var(--line)}
+  .backrow{margin-bottom:12px}
+  .backlink{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13px;font-weight:600;color:var(--ink-soft);text-decoration:none;background:var(--wash);border:1px solid var(--line);padding:6px 12px;border-radius:8px;transition:.15s}
+  .backlink svg{width:14px;height:14px}
+  .langrow{display:flex;gap:5px;margin-top:0;justify-content:flex-end}
+  .langrow button{font:inherit;font-size:12px;font-weight:600;background:var(--wash);color:var(--ink-soft);border:1px solid var(--line);padding:5px 11px;border-radius:7px;cursor:pointer;transition:.15s}
+  .langrow button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
   footer .brand{font-size:15px;font-weight:800;letter-spacing:.08em;color:var(--ink);margin-bottom:8px}
 
   /* Dongdaemun extras */
@@ -217,9 +219,14 @@
 
   <!-- ===== HOME ===== -->
   <div id="page-home" class="page show">
-    <div class="topbar">
-      <a class="backToRoot" href="../"><span data-lang="en" class="show">← All pickup points</span><span data-lang="ko">← 픽업지 목록</span><span data-lang="ja">← ピックアップ一覧</span><span data-lang="zh">← 集合地點列表</span></a>
-      <div class="langs">
+    <div class="top">
+      <div class="backrow">
+        <a class="backlink" href="../">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          <span data-lang="en" class="show">All pickup points</span><span data-lang="ko">픽업지 목록</span><span data-lang="ja">集合場所一覧</span><span data-lang="zh">集合地點列表</span>
+        </a>
+      </div>
+      <div class="langrow">
         <button class="on" onclick="setLang('en',this)">EN</button>
         <button onclick="setLang('zh',this)">中文</button>
         <button onclick="setLang('ja',this)">日本語</button>
@@ -401,7 +408,7 @@
     document.querySelectorAll('[data-lang]').forEach(function(el){
       el.classList.toggle('show', el.getAttribute('data-lang')===l);
     });
-    document.querySelectorAll('.langs button').forEach(function(b){
+    document.querySelectorAll('.langrow button').forEach(function(b){
       b.classList.toggle('on', (b.textContent==='EN'&&l==='en')||(b.textContent==='中文'&&l==='zh')||(b.textContent==='日本語'&&l==='ja')||(b.textContent==='한국어'&&l==='ko'));
     });
     document.documentElement.lang=l;
@@ -409,7 +416,7 @@
   }
   function setLang(l,btn){
     curLang=l;
-    document.querySelectorAll('.langs button').forEach(function(b){b.classList.remove('on')});
+    document.querySelectorAll('.langrow button').forEach(function(b){b.classList.remove('on')});
     if(btn) btn.classList.add('on');
     applyLang(l);
   }
