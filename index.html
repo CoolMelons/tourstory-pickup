@@ -137,15 +137,27 @@
 
 <script>
   var curLang='en';
-  function setLang(l,btn){
-    curLang=l;
-    document.querySelectorAll('.langs button').forEach(function(b){b.classList.remove('on')});
-    btn.classList.add('on');
+  function applyLang(l){
     document.querySelectorAll('[data-lang]').forEach(function(el){
       el.classList.toggle('show', el.getAttribute('data-lang')===l);
     });
-    document.documentElement.lang = l;
+    document.querySelectorAll('.langs button').forEach(function(b){
+      b.classList.toggle('on', b.textContent===({en:'EN',zh:'中文',ja:'日本語',ko:'한국어'}[l]));
+    });
+    document.documentElement.lang=l;
   }
+  function setLang(l,btn){
+    curLang=l;
+    try{ localStorage.setItem('ts_lang', l); }catch(e){}
+    applyLang(l);
+  }
+  (function(){
+    var saved='en';
+    try{ saved=localStorage.getItem('ts_lang')||'en'; }catch(e){}
+    curLang=saved;
+    applyLang(saved);
+  })();
+
 </script>
 </body>
 </html>
