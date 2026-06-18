@@ -7,7 +7,7 @@
 <style>
   :root{
     --ink:#1A2433; --ink-soft:#5A6675; --line:#E7EAEF; --paper:#fff;
-    --bg:#F7F8FA; --amber:#FFC107; --blue:#1565C0; --shadow:0 6px 24px rgba(26,36,51,.08);
+    --bg:#F7F8FA; --amber:#FFC107; --blue:#1565C0;--signal:#E8573A; --shadow:0 6px 24px rgba(26,36,51,.08);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Noto Sans TC",sans-serif;
@@ -31,6 +31,7 @@
   a.card .tx{flex:1;min-width:0}
   a.card .nm{display:block;font-size:17px;font-weight:800;letter-spacing:-.01em}
   a.card .sub{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px}
+  .card .sub b.no{color:var(--signal);font-weight:700}
   a.card .chev{color:#C2C9D2;font-size:22px;font-weight:300}
   .soon{display:flex;align-items:center;gap:16px;background:transparent;border:1.5px dashed var(--line);border-radius:16px;
     padding:18px;margin-bottom:12px;color:var(--ink-soft)}
@@ -107,10 +108,10 @@
           <span data-lang="ko">동대문역사문화공원역</span>
         </span>
         <span class="sub">
-          <span data-lang="en" class="show">Exit 10 (Tour) / Exit 9 (Shuttle) · not Dongdaemun Stn</span>
-          <span data-lang="zh">10號出口（旅遊團）/ 9號出口（接駁車）· 非東大門站</span>
-          <span data-lang="ja">10番出口（ツアー）/ 9番出口（シャトル）· 東大門駅ではない</span>
-          <span data-lang="ko">10번 출구(투어) / 9번 출구(셔틀) · 동대문역 아님</span>
+          <span data-lang="en" class="show">Exit 10 (Tour) / Exit 9 (Shuttle) · <b class="no">not Dongdaemun Station</b></span>
+          <span data-lang="zh">10號出口（旅遊團）/ 9號出口（接駁車）· <b class="no">非東大門站</b></span>
+          <span data-lang="ja">10番出口（ツアー）/ 9番出口（シャトル）· <b class="no">東大門駅ではない</b></span>
+          <span data-lang="ko">10번 출구(투어) / 9번 출구(셔틀) · <b class="no">동대문역 아님</b></span>
         </span>
       </span>
       <span class="chev">›</span>
