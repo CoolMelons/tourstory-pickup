@@ -840,7 +840,7 @@
     if(sIdx===slides.length-1 && dir>0){ sIdx=0; renderSlide(); return; }
     sIdx=Math.min(slides.length-1,Math.max(0,sIdx+dir)); renderSlide();
   }
-  var WALK_MIN={e1:5,e2:7,e3:8,e10:15};
+  var WALK_MIN={e1:5,e2:7,e3:8,e10:8};
   function updateWalkTime(){
     var m=WALK_MIN[curExit]||5;
     var el=document.getElementById('walkTime');
